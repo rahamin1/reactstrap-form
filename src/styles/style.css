@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 5.9vw !important;
+}
+h2 {
+  font-size: 4.0vh !important;
+}
+h3 {
+  font-size: 3.6vh !important;
+}
+h4 {
+  font-size: 3.4vh !important;
+}
+h5 {
+  font-size: 3.2vh !important;
+}
+h6 {
+  font-size: 3.0vh !important;
+}
+p {
+  font-size: 2.8vh !important;
+}
+
+.btn {
+  margin-left: 10px;
+}
+
+.cardPost {
+  margin-top: 20px;
+}
