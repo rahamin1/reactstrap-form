@@ -38,7 +38,8 @@ export default class Search extends Component {
 			radioGroupOptions: ['Yes', 'No'],
 			radioGroupSelection: ['Yes'],
 
-			inputInProcess: true
+			inputInProcess: true,
+			formIsValid: true
 		};
 		this.handleFormSubmit = this.handleFormSubmit.bind(this);
 		this.handleClearForm = this.handleClearForm.bind(this);
@@ -132,11 +133,13 @@ export default class Search extends Component {
 			radioGroupSelection: this.state.radioGroupSelection
 		};
 		if (!this.formValidity()) {
+			this.setState( { formIsValid: false });
 			console.log("In Search/handleFormSubmit. " +
 			"formValidity returned false. formPayload: ", formPayload);
 			return false;
 		}
 
+		this.setState( { formIsValid: true });
 		console.log("In Search/handleFormSubmit. Submitting now. formPayload: ", formPayload);
 	}
 
@@ -147,7 +150,6 @@ export default class Search extends Component {
 
 	render() {
 
-		let displayAlert = false;
 		const colWidth = { xl: "6", md: "8", sm: "10", xs: "12" };
 
 		return (
@@ -221,9 +223,14 @@ export default class Search extends Component {
 
 				<FormGroup>
 					<Col {...colWidth}>
-			{ displayAlert &&
+			{ !this.state.formIsValid && !this.state.inputInProcess &&
 				<Alert color="danger">
-        	Error while searching for books. Please check your internet connection and try again.
+        	Error in form values. Please check and submit again.
+      	</Alert>
+			}
+			{ this.state.formIsValid && !this.state.inputInProcess &&
+				<Alert color="info">
+        	Submitting the form...
       	</Alert>
 			}
 		</Col>
