@@ -1,4 +1,4 @@
-# reactstrap form example with controlled components
+# [reactstrap](https://github.com/reactstrap/reactstrap) form example with controlled components
 
 - This is an example of a form with controlled components that was built with react, redux and [reactstrap](https://github.com/reactstrap/reactstrap) (not using redux-form).
 
